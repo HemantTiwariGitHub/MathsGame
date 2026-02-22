@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maths Champion Quest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <h1>🌟 Maths Champion Quest 🌟</h1>
+        <p class="subtitle">Learn + Practice Addition & Subtraction (Carry / Borrow), Time, Names, and more!</p>
+      </div>
+      <div class="mode-switches">
+        <label class="toggle-pill">
+          <input type="checkbox" id="learnModeToggle" />
+          <span>Learn Mode</span>
+        </label>
+        <label class="toggle-pill">
+          <input type="checkbox" id="timedToggle" />
+          <span>Timed Challenge</span>
+        </label>
+      </div>
+    </header>
+
+    <section class="dashboard card">
+      <div class="stat">Score: <strong id="scoreValue">0</strong></div>
+      <div class="stat">Streak: <strong id="streakValue">0</strong> 🔥</div>
+      <div class="stat">Badge: <strong id="badgeValue">Starter</strong></div>
+      <div class="stat">Time: <strong id="timerValue">--</strong></div>
+      <div class="progress-wrap">
+        <span id="progressLabel">Question 0/0</span>
+        <div class="progress-bar"><div id="progressBarFill"></div></div>
+      </div>
+    </section>
+
+    <section class="game-controls card">
+      <h2>Choose Game Mode</h2>
+      <div class="button-row">
+        <button class="mode-btn" data-mode="mission">🎯 Mission Mode</button>
+        <button class="mode-btn" data-mode="practice">🧩 Quick Practice</button>
+        <button class="mode-btn" data-mode="timed">⏱ Timed Challenge</button>
+        <button class="mode-btn" data-mode="exam">📝 Exam Simulator (20 Q)</button>
+      </div>
+    </section>
+
+    <section class="parent-panel card" id="parentPanel">
+      <h2>👨‍👩‍👧 Parent Mode</h2>
+      <button id="toggleParentPanel">Show / Hide Parent Options</button>
+      <div id="parentOptions" class="hidden">
+        <label>Level
+          <select id="levelSelect">
+            <option value="1">Level 1 - Easy</option>
+            <option value="2">Level 2 - Medium</option>
+            <option value="3">Level 3 - Challenge</option>
+          </select>
+        </label>
+
+        <label>Number Range
+          <select id="rangeSelect">
+            <option value="20">Up to 20</option>
+            <option value="50">Up to 50</option>
+            <option value="99" selected>Up to 99</option>
+          </select>
+        </label>
+
+        <fieldset>
+          <legend>Topics</legend>
+          <div class="topic-grid" id="topicGrid"></div>
+        </fieldset>
+
+        <button id="printWorksheetBtn">🖨 Print Worksheet (20 Questions)</button>
+      </div>
+    </section>
+
+    <section class="question-card card" id="questionSection">
+      <h2 id="questionTitle">Pick a mode to start!</h2>
+      <div id="placeValueHelper" class="place-value"></div>
+      <div id="questionPrompt" class="prompt"></div>
+      <div id="clockContainer"></div>
+      <div id="matchingContainer"></div>
+      <div class="answer-zone" id="answerZone"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="nextBtn" class="hidden">Next Question ➜</button>
+    </section>
+
+    <section class="learn-steps card hidden" id="learnStepsSection">
+      <h2>📚 Learn Steps</h2>
+      <div id="learnSteps"></div>
+    </section>
+
+    <section class="achievements card">
+      <h2>🏅 Achievements</h2>
+      <div class="badges">
+        <div class="badge" id="badgeBronze">🥉 Bronze Star (5)</div>
+        <div class="badge" id="badgeSilver">🥈 Silver Star (10)</div>
+        <div class="badge" id="badgeGold">🏆 Gold Trophy (20)</div>
+      </div>
+      <p id="encouragement">You are a Maths Champion!</p>
+    </section>
+
+    <section id="worksheetPrint" class="print-only"></section>
+  </div>
+
+  <canvas id="confettiCanvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
